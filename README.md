@@ -9,7 +9,7 @@ This repo contains a number of exercises for diagonalising the Hamiltonian of
 atomic hydrogen using a basis of Coulomb Sturmian functions. 
 
 $$
-\chi_{n,l}(r) = \mathcal{N}_{n,l} (2\zeta r)^{l+1} \mathrm{e}^{-\zeta r} _1F_1(l + 1 - n|l + 1|2\zeta r)
+\chi_{n,l}(r) = \mathcal{N}_{n,l} (2\zeta r)^{l+1} \mathrm{e}^{-\zeta r} M(l + 1 - n|l + 1|2\zeta r)
 $$
 
 
