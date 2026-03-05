@@ -15,7 +15,7 @@ exercises will require new subroutines to be written.
 Using atomic units, the Hamiltonian for atomic hydrogen is given by 
 
 $$ 
-H = -\frac{1}{2\mu} \nabla_{\bm{r}}^2 - \frac{1}{r},
+H = -\frac{1}{2\mu} \nabla_{\mathbf{r}}^2 - \frac{1}{r},
 $$
 
 where $\mu$ is the reduced mass of the electron-proton system and $\mathbf{r}$
