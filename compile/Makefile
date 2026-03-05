@@ -80,19 +80,18 @@ $(OBJ_DIR):
 $(MOD_DIR):
 	mkdir -p $(MOD_DIR)
 
-# pattern rule for compiling fparse .f90 files:
-$(OBJ_DIR)/fparse_%.o: $(FPARSE_SRC_DIR)/%.f90
+# static pattern rule for compiling project .f90 files:
+$(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.f90
 	$(FC) $(FCFLAGS) -c $< -o $@
 
-# pattern rule for compiling .f90 files:
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.f90
+# static pattern rule for compiling fparse .f90 files:
+$(FPARSE_OBJECTS): $(OBJ_DIR)/%.o: $(FPARSE_SRC_DIR)/%.f90
 	$(FC) $(FCFLAGS) -c $< -o $@
 
 # Link all object files to create the final cs-ccc executable
 $(TARGET): $(OBJS)
-	$(FC) $(FPARSE_OBJS) $(OBJS_F90) $(OBJS_F) -L$(OBJ_DIR) $(LDFLAGS) -o $(TARGET)
+	$(FC) $(OBJS) $(LDFLAGS) -o $(TARGET)
 
 # clean up the build directory
 clean:
 	rm -rf $(BUILD_DIR)/*
-
