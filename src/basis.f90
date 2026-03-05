@@ -7,9 +7,10 @@ module basis
     public :: basis_type
 
     type :: basis_type
-        integer :: nmax
-        integer :: l
-        real(wp), allocatable :: funcs(:,:)
+        integer :: nmax ! index of highest n in the basis
+        integer :: l    ! orbital angular momentum quantum number
+        real(kind=wp) :: zeta ! fall off parameter for the basis functions
+        real(kind=wp), allocatable :: funcs(:,:) ! basis functions evaluated on the rgrid
     end type basis_type
 
 contains
