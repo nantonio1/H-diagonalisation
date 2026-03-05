@@ -20,19 +20,33 @@ space of complex-valued square-integrable functions on $\mathbb{R}^3$, i.e. in
 the space $L^2(\mathbb{R}^3,\mathbb{C})$. We can write them as follows
 
 $$
-\chi_{n, l, m}(\mathbf{r}) = \frac{1}{r} \varphi_{n,l}(r) Y_{\ell,m}(\hat{\mathbf{r}}),
+\chi_{k, l, m}(\mathbf{r}) = \frac{1}{r} \varphi_{k,l}(r) Y_{\ell,m}(\hat{\mathbf{r}}),
 $$
 
-where $n \in \mathbb{N}$ is an index of the basis function, 
+where $k \in \mathbb{N}$ is an index of the basis function, 
 $l \in \mathbb{N}_0$ is the orbital angular momentum quantum number, 
 $m \in \{-l, -l + 1, \ldots, l\}$ is the magnetic quantum number, and 
 $Y_{\ell,m}(\hat{\mathbf{r}})$ are the spherical harmonics. The radial part of 
 the Coulomb Sturmian functions is given by
 
 $$
-\varphi_{n,l}(r) = \mathcal{N}_{n,l} (2\zeta r)^{l+1} \mathrm{e}^{-\zeta r} M(l + 1 - n|l + 1|2\zeta r)
+\varphi_{k,l}(r) = \mathcal{N}_{k,l} (2\zeta r)^{l+1} \mathrm{e}^{-\zeta r} M(l + 1 - k|l + 1|2\zeta r),
 $$
 
+where $\mathcal{N}_{k,l}$ is a normalisation constant, $\zeta$ is a scaling
+parameter, and $M(a|b|z)$ is the Kummer confluent hypergeometric function.
+
+The Hilbert space $L^2(\mathbb{R}^3,\mathbb{C})$ is the space where the bound
+state solutions of the atomic hydrogen Hamiltonian live. Given that the 
+Coulomb Sturmian functions form a complete set in this space, we can express any
+bound state solution of the atomic hydrogen Hamiltonian as a linear combination
+of the Coulomb Sturmian functions as follows
+
+$$
+\psi_{n,l,m}(\mathbf{r}) = \sum_{k=1}^{\infty} c^{(n,l)}_k \chi_{k, l,m}(\mathbf{r}),
+$$
+where $n$ is the principal quantum number and $c^{(n,l)}_k$ are the expansion
+coefficients. In practice we cannot take this sum to infinity
 
 1. Fill in subroutine generate_sturmian_basis in src/sturmian.f90 to generate
    the radial Sturmian functions. Creat a new subroutine which is called in
