@@ -1,0 +1,17 @@
+#------------------------------------------------------------------------------
+#
+# Diagonalising the atomic hydrogen hamiltonian example
+#
+#------------------------------------------------------------------------------
+BASIS_CONFIGURATIONS
+[nmax] 10            # maximum number of basis functions
+[zeta] 1.0           # fall off parameter for the sturmian basis
+[l]                  # orbital angular momentum quantum number
+END
+
+RGRID
+[rmin] 0.01
+[rmax] 20
+[meshr] 300
+END
+
