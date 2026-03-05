@@ -6,7 +6,7 @@ SRC_DIR    = ../src
 BUILD_DIR  = ../build
 OBJ_DIR    = $(BUILD_DIR)/obj
 MOD_DIR    = $(BUILD_DIR)/mod
-FPARSE_SRC_DIR = ../external/fparse/src
+FPARSE_SRC_DIR = ../external/fparse2/src
 
 #------------------------------------------------------------------------------
 # set compiler
