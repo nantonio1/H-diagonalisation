@@ -21,8 +21,8 @@ FC_MODULE_DIR_FLAG ?= -J$(MOD_DIR)
 FC_LINE_LENGTH_FLAG ?= -ffree-line-length-none
 FCFLAGS  = $(FC_MODULE_DIR_FLAG) -I$(MOD_DIR) $(FC_LINE_LENGTH_FLAG)
 
-FC_DEBUG = -g -O0
-FC_PROD  = -O3 
+FC_DEBUG = -g -O0 -llapack
+FC_PROD  = -O3 -llapack
 
 # debugging checks
 ifeq ($(debug), on)
@@ -42,6 +42,9 @@ SOURCES = precision_mod.f90 \
 		  basis.f90 \
 		  sturmian.f90 \
 		  basis_setup.f90 \
+		  eigsolver_mod.f90 \
+		  matrix_elements.f90 \
+		  input_parser.f90 \
 		  main.f90 \
 
 
@@ -65,7 +68,7 @@ TARGET = $(BUILD_DIR)/h_diagonalisation.exe
 OBJECTS = $(patsubst %.f90, $(OBJ_DIR)/%.o, $(SOURCES))
 FPARSE_OBJECTS = $(patsubst %.f90, $(OBJ_DIR)/%.o, $(FPARSE_SOURCES))
 
-OBJS = $(OBJECTS) $(FPARSE_OBJECTS)
+OBJS = $(FPARSE_OBJECTS) $(OBJECTS)
 
 # default target
 all: $(BUILD_DIR) $(OBJ_DIR) $(MOD_DIR) $(TARGET)
