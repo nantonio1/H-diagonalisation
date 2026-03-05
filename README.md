@@ -1,7 +1,7 @@
 # Diagonalising atomic hydrogen Hamiltonian exercise
 This repo is designed to be an introduction to diagaonalising an atomic
 Hamiltonian using a basis of Coulomb Sturmian functions. There are a number of
-empty subroutines in this repo which need to fill in. Some of the
+empty subroutines in this repo which need to be filled in. Some of the
 exercises will require new subroutines to be written.
 
 ## Table of Contents
