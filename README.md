@@ -1,6 +1,6 @@
 # Diagonalising atomic hydrogen Hamiltonian exercise
 This repo is designed to be an introduction to diagaonalising an atomic
-Hamiltonian using a basis of Coulomb Sturmian functions. There are a number of
+Hamiltonian using a basis of Coulomb Sturmian functions. The code is written in Fortran. There are a number of
 empty subroutines in this repo which need to be filled in. Some of the
 exercises will require new subroutines to be written.
 
