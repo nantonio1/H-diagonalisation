@@ -45,6 +45,7 @@ of the Coulomb Sturmian functions as follows
 $$
 \psi_{n,l,m}(\mathbf{r}) = \sum_{k=1}^{\infty} c^{(n,l)}_k \chi_{k, l,m}(\mathbf{r}),
 $$
+
 where $n$ is the principal quantum number and $c^{(n,l)}_k$ are the expansion
 coefficients. In practice we cannot take this sum to infinity, so we need to
 truncate the basis at some finite value of $k$. This way the expansion becomes 
@@ -58,6 +59,7 @@ ultimately boils down to solving a generalised eigenvalue problem of the form
 $$
 \mathbf{H} \mathbf{c} = \varepsilon \mathbf{S} \mathbf{c},
 $$
+
 where $\mathbf{H}$ is the Hamiltonian matrix, $\mathbf{S}$ is the overlap 
 matrix, $\mathbf{c}$ is the vector of expansion coefficients, and 
 $\varepsilon$ is the energy eigenvalue. 
