@@ -46,7 +46,21 @@ $$
 \psi_{n,l,m}(\mathbf{r}) = \sum_{k=1}^{\infty} c^{(n,l)}_k \chi_{k, l,m}(\mathbf{r}),
 $$
 where $n$ is the principal quantum number and $c^{(n,l)}_k$ are the expansion
-coefficients. In practice we cannot take this sum to infinity
+coefficients. In practice we cannot take this sum to infinity, so we need to
+truncate the basis at some finite value of $k$. This way the expansion becomes 
+an approximation to the true wavefunction, and the quality of the approximation
+depends on the size of the basis.
+
+The expansion coefficients $c^{(n,l)}_k$, as well as the energy eigenvalues of
+the bound states, can be found using the Rayleigh-Ritz variational method which
+ultimately boils down to solving a generalised eigenvalue problem of the form
+
+$$
+\mathbf{H} \mathbf{c} = \varepsilon \mathbf{S} \mathbf{c},
+$$
+where $\mathbf{H}$ is the Hamiltonian matrix, $\mathbf{S}$ is the overlap 
+matrix, $\mathbf{c}$ is the vector of expansion coefficients, and 
+$\varepsilon$ is the energy eigenvalue. 
 
 1. Fill in subroutine generate_sturmian_basis in src/sturmian.f90 to generate
    the radial Sturmian functions. Creat a new subroutine which is called in
