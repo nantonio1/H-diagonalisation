@@ -152,8 +152,16 @@ the following command in the terminal:
 brew install gfortran lapack
 ```
 
-To compile the code, you need to first change into the `compile/` directory.
-Once there, you can run the following make command:
+You will also need to have pulled the fortran parser library `fparser2` from
+GitHub and installed it on your machine. Inside the repo directory, you can run
+the following command to pull the library:
+
+```bash
+git submodule update --init --recursive
+```
+
+Next, to compile the code, you need to first change into the `compile/` 
+directory. Once there, you can run the following make command:
 
 ```bash
 make
