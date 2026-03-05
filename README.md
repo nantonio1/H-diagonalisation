@@ -12,7 +12,8 @@ exercises will require new subroutines to be written.
 - [Basic Usage](#basic-usage)
 
 ## Background information
-Using atomic units, the Hamiltonian for atomic hydrogen is given by 
+Using atomic units, the Hamiltonian for atomic hydrogen in the centre-of-mass
+is given by
 
 $$ 
 H = -\frac{1}{2\mu} \nabla_{\mathbf{r}}^2 - \frac{1}{r},
