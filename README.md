@@ -1,10 +1,20 @@
 # Diagonalising atomic hydrogen Hamiltonian exercise
+This repo is designed to be an introduction to diagaonalising an atomic
+Hamiltonian using a basis of Coulomb Sturmian functions. There are a number of
+empty subroutines in this repo which you are expected to fill in. Some of the
+exercises will require you to write new subroutines.
 
+# Background information
 This repo contains a number of exercises for diagonalising the Hamiltonian of
 atomic hydrogen using a basis of Coulomb Sturmian functions. 
 
 $$
-\chi_{n,l}(r) =
+\chi_{n,l}(r) 
+= 
+\mathcal{N}_{n,\ell} 
+(2\zeta r)^{\ell+1}
+\mathrm{e}^{-\zeta r}
+_1F_1(\ell + 1 - n||\ell + 1|2\zeta r)
 $$
 
 
