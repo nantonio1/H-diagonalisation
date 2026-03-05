@@ -32,7 +32,7 @@ $$
 $$
 
 where $k \in \mathbb{N}$ is an index of the basis function, 
-$l \in \mathbb{N}_{0}$ is the orbital angular momentum quantum number, 
+$l \in \{0,1,2,\ldots,\}$ is the orbital angular momentum quantum number, 
 $m \in \{-l, -l + 1, \ldots, l\}$ is the magnetic quantum number, and 
 $Y_{\ell,m}(\hat{\mathbf{r}})$ are the spherical harmonics. The radial part of 
 the Coulomb Sturmian functions is given by
