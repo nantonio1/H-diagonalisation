@@ -18,14 +18,17 @@ make the approximation that $\mu = 1$ a.u.
 The Coulomb Sturmian functions are a complete set of functions in the Hilbert
 space of complex-valued square-integrable functions on $\mathbb{R}^3$, i.e. in
 the space $L^2(\mathbb{R}^3,\mathbb{C})$. We can write them as follows
+
 $$
 \chi_{n, l, m}(\mathbf{r}) = \frac{1}{r} \varphi_{n,l}(r) Y_{\ell,m}(\hat{\mathbf{r}}),
 $$
+
 where $n \in \mathbb{N}$ is an index of the basis function, 
 $l \in \mathbb{N}_0$ is the orbital angular momentum quantum number, 
 $m \in \{-l, -l + 1, \ldots, l\}$ is the magnetic quantum number, and 
 $Y_{\ell,m}(\hat{\mathbf{r}})$ are the spherical harmonics. The radial part of 
 the Coulomb Sturmian functions is given by
+
 $$
 \varphi_{n,l}(r) = \mathcal{N}_{n,l} (2\zeta r)^{l+1} \mathrm{e}^{-\zeta r} M(l + 1 - n|l + 1|2\zeta r)
 $$
