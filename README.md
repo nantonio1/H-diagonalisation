@@ -62,16 +62,57 @@ $$
 
 where $\mathbf{H}$ is the Hamiltonian matrix, $\mathbf{S}$ is the overlap 
 matrix, $\mathbf{c}$ is the vector of expansion coefficients, and 
-$\varepsilon$ is the energy eigenvalue. 
+$\varepsilon$ is the energy eigenvalue. Solving this equation for the atomic
+hydrogen system is the main objective of this repo. 
 
-1. Fill in subroutine generate_sturmian_basis in src/sturmian.f90 to generate
-   the radial Sturmian functions. Creat a new subroutine which is called in
-   generate_sturmian_basis to output the generated Sturmian functions to a file.
-   Compare with correct results.
+From the orthogonality of the spherical harmonics, we can see that the
+Hamiltonian and overlap matrices are block diagonal in the quantum numbers $l$
+and $m$. This means that we can solve the generalised eigenvalue problem
+separately for each value of $l$ and $m$. In practice, the energy eigenvalues 
+do not depend on $m$ due to the spherical symmetry of the problem, so it will 
+not be relevant to consider in this repo. 
+
+Instead of forming the complete wavefunction $\psi_{n,l,m}(\mathbf{r})$, we can
+just focus on the reduced radial part of the wavefunction, which is given by
+
+$$
+u_{n,l}(r) = \sum_{k=1}^{\infty} c^{(n,l)}_k \varphi_{k,l}(r).
+\label{eq:radial_wavefunction}
+$$
+
+# Exercises
+
+1. Fill in subroutine `generate_sturmian_basis` in `src/sturmian.f90` to 
+   generate the radial Sturmian functions. Create a new subroutine which is 
+   called in generate_sturmian_basis to output the generated Sturmian functions 
+   to a file. Compare with correct results in `solutions/basis/` to check your
+   implementation is correct.
 
 2. Fill in subroutine generate_overlap_matrix in src/matrix_elements.f90 to
    calculate the overlap matrix elements.
 
 3. Fill in subroutine generate_hamiltonian_matrix in src/matrix_elements.f90 to
    generate the Hamiltonian matrix for atomic hydrogen.
+
+4. Starting with l=0 orbital angular momentum and scale parameter 
+   $\zeta = 1$, run the program with basis sizes of 5, 10, 20, 30, and 50. In
+   each case how many solutions agree with the exact energy eigenvalues of
+   atomic hydrogen.
+
+5. Test the program for states with different $l$ to ensure that the
+   implementation is correct for not just s-states.
+
+6. For a fixed basis size of 30, vary the scale parameter $\zeta$ and see how it 
+   affects the accuracy of the results. What happens if you decrease $\zeta$?
+   What happens if you increase $\zeta$? 
+
+7. Referring to Eq. \ref{eq:radial_wavefunction}, create a new 
+   module/subroutines to print the radial wavefunctions $u_{n,l}(r)$ to a file.
+   Compare with analytic results in `solutions/wavefunctions/` to check your
+   implementation is correct.
+
+## Additional exercises
+
+If interested, there is a number
+
 
