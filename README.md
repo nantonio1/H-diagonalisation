@@ -15,7 +15,7 @@ exercises will require new subroutines to be written.
 Using atomic units, the Hamiltonian for atomic hydrogen is given by 
 
 $$ 
-H = -\frac{1}{2\mu} \nabla_{\mathbf{r}}^2 - \frac{1}{r},
+H = -\frac{1}{2\mu} \nabla_{\bm{r}}^2 - \frac{1}{r},
 $$
 
 where $\mu$ is the reduced mass of the electron-proton system and $\mathbf{r}$
@@ -84,7 +84,6 @@ just focus on the reduced radial part of the wavefunction, which is given by
 
 $$
 u_{n,l}(r) = \sum_{k=1}^{\infty} c^{(n,l)}_k \varphi_{k,l}(r).
-\label{eq:radial_wavefunction}
 $$
 
 ## Exercises
@@ -114,7 +113,7 @@ $$
    affects the accuracy of the results. What happens if you decrease $\zeta$?
    What happens if you increase $\zeta$? 
 
-7. Referring to Eq. \ref{eq:radial_wavefunction}, create a new 
+7. Referring to the equation for $u_{n,l}(r)$ above, create a new 
    module/subroutines to print the radial wavefunctions $u_{n,l}(r)$ to a file.
    Compare with analytic results in `solutions/wavefunctions/` to check your
    implementation is correct.
