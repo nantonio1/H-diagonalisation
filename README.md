@@ -136,29 +136,50 @@ your understanding of this idea of diagonalising a Hamiltonian.
    basis sets to be specified.
 
 ## Compilation
-To compile this code, you will need to have a Fortran compiler and 
+To compile this code, you will need to have a Fortran compiler and LAPACK
+library installed on your machine. If on a Linux-based system (or running WSL on
+Windows), you can install these by running the following command in the terminal:
+
+```bash
+sudo apt update
+sudo apt install gfortran liblapack-dev
+```
+
+If you are on a mac OS system, you can install these using Homebrew by running
+the following command in the terminal:
+
+```bash
+brew install gfortran lapack
+```
+
 To compile the code, you need to first change into the `compile/` directory.
-Once there, to compile the code on the machine you are on, you can run the
-following make command:
+Once there, you can run the following make command:
 
 ```bash
 make
 ```
 
-Where `<machine-name>` is the name of the machine you are on. For example, to
-compile on the Setonix cluster you would execute the following command:
-
-```bash
-make machine=setonix
-```
 This will create an directory outside the `compile/` directory called
-`build/` which will contain the final executables `cs-ccc` and `hf` as well
-as all the object and module files generated during the compilation process.
+`build/` which will contain the final executable `h_diagonalisation.exe` and 
+as well as all the object and module files generated during the compilation 
+process.
 
 ### Debug build
 To compile the code with debug flags enabled, you can run the following command
 in the `compile/` directory:
 
 ```bash
-make machine=<machine-name> debug=on
+make debug=on
+```
+
+## Basic Usage
+To run the program, you can copy the example working directory `example/`
+outside of the repo and change into it. Once there, you need to update the
+`run.sh` script to update the `REPO_PATH` variable to point to the location of
+the repo on your machine. Once that is done, you can edit the `data.in` file to
+specify the parameters of your calculation, and then run the `run.sh` script by
+typing the following command in the terminal:
+
+```bash
+./run.sh
 ```
