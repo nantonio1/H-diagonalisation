@@ -6,12 +6,12 @@
 BASIS_CONFIGURATIONS
 [nmax] 10            # maximum number of basis functions
 [zeta] 1.0           # fall off parameter for the sturmian basis
-[l]                  # orbital angular momentum quantum number
+[l]    0             # orbital angular momentum quantum number
 END
 
 RGRID
-[rmin] 0.01
-[rmax] 20
-[meshr] 300
+[rmin]   0.01        # the smallest value on electron radial grid
+[rmax]   20          # the largest value on the electron radial grid
+[meshr]  300         # number of points on the electron radial grid
 END
 
