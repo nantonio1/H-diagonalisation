@@ -1,7 +1,11 @@
-# Diagonalising atomic hydrogen exercise
+# Diagonalising atomic hydrogen Hamiltonian exercise
 
 This repo contains a number of exercises for diagonalising the Hamiltonian of
 atomic hydrogen using a basis of Coulomb Sturmian functions. 
+
+$$
+\chi_{n,l}(r) =
+$$
 
 
 1. Fill in subroutine generate_sturmian_basis in src/sturmian.f90 to generate
