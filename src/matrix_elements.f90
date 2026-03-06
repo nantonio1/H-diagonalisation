@@ -20,7 +20,7 @@ contains
         allocate(S(1:basis%nmax, 1:basis%nmax))
         S(:,:) = 0.0_wp
 
-        ! populate the overlap matrix S
+        ! EXERCISE 2 (see README.md for details)
 
     end subroutine compute_overlap_matrix
 
@@ -36,7 +36,7 @@ contains
         allocate(H(1:basis%nmax, 1:basis%nmax))
         H(:,:) = 0.0_wp
 
-        ! populate the Hamiltonian matrix H
+        ! EXERCISE 3 (see README.md for details)
 
     end subroutine compute_hamiltonian_matrix
 

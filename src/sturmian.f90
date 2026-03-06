@@ -18,7 +18,7 @@ contains
         integer :: n
         integer :: ir
 
-    
+        ! EXERCISE 1 (see README.md for details)
  
     end subroutine generate_sturmian_basis
 
