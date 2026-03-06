@@ -1,3 +1,5 @@
-[submodule "external/fparse2"]
-	path = external/fparse2
+[submodule "external/fparse"]
+	path = external/fparse
 	url = git@github.com:nantonio1/fparse2.git
+[submodule "external/fparse"]
+	path = external/fparse
