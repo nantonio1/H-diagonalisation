@@ -1,8 +1,8 @@
 # Diagonalising atomic hydrogen Hamiltonian exercise
 This repo is designed to be an introduction to diagaonalising an atomic
-Hamiltonian using a basis of Coulomb Sturmian functions. The code is written in Fortran. There are a number of
-empty subroutines in this repo which need to be filled in. Some of the
-exercises will require new subroutines to be written.
+Hamiltonian. The code is written in Fortran. There are a number of empty 
+subroutines in this repo which need to be filled in. Some of the exercises will 
+require new subroutines to be written.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -119,21 +119,12 @@ $$
    Compare with analytic results in `solutions/wavefunctions/` to check your
    implementation is correct.
 
-### Additional exercises
-
-If interested, there is a number of additional exercises you can try to further
-your understanding of this idea of diagonalising a Hamiltonian.
-
-1. Alter the input file parser and the Hamiltonian matrix elements, to allow 
+8. Alter the input file parser and the Hamiltonian matrix elements, to allow 
    for different nuclear charges $Z$ to be specified. Does the optimial value 
    of $\zeta$ for the $1s$ state change as you change $Z$?
 
-2. There are plenty of other basis sets that can be used to diagonalise the
-   Hamiltonian. For example, there are Gaussian-type orbitals, Slater-type
-   orbitals, and B-splines. Try implementing one of these other basis sets and
-   see how the results compare to the Coulomb Sturmian basis. This will require
-   adding additional flexibility to the input file parser to allow for different
-   basis sets to be specified.
+9. Extend the code to be able to diagonalise the Hamiltonian using either a
+   Sturmian or Gaussian type orbital basis.
 
 ## Compilation
 To compile this code, you will need to have a Fortran compiler and LAPACK
