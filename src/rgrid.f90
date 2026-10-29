@@ -7,7 +7,7 @@ module rgrid_mod
     public :: rgrid_type, setup_rgrid
 
     type :: rgrid_type
-        integer :: meshr
+        integer :: npoints
         real(kind=wp) :: dr_min,rmax
         real(kind=wp), allocatable, dimension(:) :: grid
         real(kind=wp), allocatable, dimension(:) :: weights
@@ -15,14 +15,14 @@ module rgrid_mod
 
 contains
 
-    subroutine setup_rgrid(meshr,rgrid,wrgrid,dr_min,rmax,ounit)
+    subroutine setup_rgrid(npoints,rgrid,wrgrid,dr_min,rmax,ounit)
         implicit none
         !
-        ! input/Output variables
+        ! input/output variables
         !
-        integer, intent(in) :: meshr
+        integer, intent(in) :: npoints
         integer, intent(in) :: ounit
-        real(kind=wp), intent(out) :: rgrid(1:meshr),wrgrid(1:meshr)
+        real(kind=wp), intent(out) :: rgrid(1:npoints),wrgrid(1:npoints)
         real(kind=wp), intent(in) :: dr_min,rmax
         !
         ! internal variables
@@ -32,19 +32,19 @@ contains
         rgrid(:)=0.0_wp
         wrgrid(:)=0.0_wp
 
-        do i=1,meshr
-            rgrid(i)=dr_min*(rmax/dr_min)**(real(i,kind=wp)/real(meshr,kind=wp))
+        do i=1,npoints
+            rgrid(i)=dr_min*(rmax/dr_min)**(real(i,kind=wp)/real(npoints,kind=wp))
         enddo
 
-        call trap_weights(rgrid(1:meshr),meshr,wrgrid(1:meshr))   
+        call trapezodial_weights(rgrid(1:npoints),npoints,wrgrid(1:npoints))   
 
     end subroutine setup_rgrid 
 
 
-    subroutine trap_weights(x,n,w)
+    subroutine trapezoidal_weights(x,n,w)
         implicit none
         !
-        ! input/Output variables
+        ! input/output variables
         !
         integer,intent(in)::n
         real(kind=wp),dimension(1:n),intent(in) :: x
@@ -60,6 +60,6 @@ contains
         enddo
         w(n)=0.5_wp*(x(n)-x(n-1))
 
-    end subroutine trap_weights
+    end subroutine trapezodial_weights
 
 end module rgrid_mod

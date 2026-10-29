@@ -17,7 +17,7 @@ module input_parser
     type :: input_data_type
         integer :: nmax = 0
         integer :: l = 0
-        integer :: meshr = 0
+        integer :: npoints = 0
         real(wp) :: zeta = 0.0_wp
         real(wp) :: rmin = 0.0_wp
         real(wp) :: rmax = 0.0_wp
@@ -50,7 +50,7 @@ contains
             log_unit = 6
         endif
 
-        ! set up the expected schema and parse the input file
+        ! set up the expected input file schema and parse the input file
         call init_schema(schema)
         call build_schema(schema)
         call parse_input(schema, filename, tree, log_unit)
@@ -63,7 +63,7 @@ contains
         ! read in radial grid parameters
         call get_real(schema, tree, 'rgrid', 'rmin', rgrid%dr_min, log_unit)
         call get_real(schema, tree, 'rgrid', 'rmax', rgrid%rmax, log_unit)
-        call get_integer(schema, tree, 'rgrid', 'meshr', rgrid%meshr, log_unit)
+        call get_integer(schema, tree, 'rgrid', 'npoints', rgrid%npoints, log_unit)
 
         write(6,*) '------Calculation inputs------'
         write(6,*) ''
@@ -75,7 +75,7 @@ contains
         write(6,*) ' Radial grid:'
         write(6,'(a9,1F8.3)') '  rmin = ', rgrid%dr_min
         write(6,'(a9,1F7.2)') '  rmax = ', rgrid%rmax
-        write(6,'(a10,1i4)') '  meshr = ', rgrid%meshr
+        write(6,'(a10,1i4)') '  npoints = ', rgrid%npoints
         write(6,*) '------------------------------'
 
     end subroutine parse_input_file
@@ -98,7 +98,7 @@ contains
         call add_block(schema, 'rgrid', .true.)
         call add_key(schema, 'rgrid', 'rmin', .true., .false., '')
         call add_key(schema, 'rgrid', 'rmax', .true., .false., '')
-        call add_key(schema, 'rgrid', 'meshr', .true., .false., '')
+        call add_key(schema, 'rgrid', 'npoints', .true., .false., '')
     end subroutine build_schema
 
 end module input_parser

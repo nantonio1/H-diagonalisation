@@ -21,7 +21,7 @@ contains
         type(rgrid_type), intent(in) :: rgrid
         type(basis_type), intent(inout) :: basis
 
-        allocate(basis%funcs(basis%nmax, rgrid%meshr)) 
+        allocate(basis%funcs(basis%nmax, rgrid%npoints)) 
 
     end subroutine allocate_basis
 

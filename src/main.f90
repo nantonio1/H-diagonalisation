@@ -9,14 +9,14 @@ program main
     implicit none
     type(basis_type) :: basis
     type(rgrid_type) :: rgrid
-    real(kind=wp), allocatable :: H(:,:)      ! Hamiltonian matrix
+    real(kind=wp), allocatable :: H(:,:)      ! hamiltonian matrix
     real(kind=wp), allocatable :: S(:,:)      ! overlap matrix
     real(kind=wp), allocatable :: energies(:) ! eigenvalues
     real(kind=wp), allocatable :: c(:,:)      ! matrix of expansion coefficients
 
     call parse_input_file('data.in', rgrid, basis)
 
-    call setup_rgrid(rgrid%meshr, rgrid%grid, rgrid%weights, rgrid%dr_min, rgrid%rmax,6)
+    call setup_rgrid(rgrid%npoints, rgrid%grid, rgrid%weights, rgrid%dr_min, rgrid%rmax, 6)
 
     call setup_basis(basis, rgrid)
 
