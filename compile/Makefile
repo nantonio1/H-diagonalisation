@@ -2,11 +2,11 @@
 #------------------------------------------------------------------------------
 # directories (relative to the compile directory)
 #------------------------------------------------------------------------------
-SRC_DIR    = ../src
-BUILD_DIR  = ../build
-OBJ_DIR    = $(BUILD_DIR)/obj
-MOD_DIR    = $(BUILD_DIR)/mod
-FPARSE_SRC_DIR = ../external/fparse/src
+SRC_DIR    = ../src                        # this is the place where the source code files are located
+BUILD_DIR  = ../build                      # this is where we will put the executable and other build files
+OBJ_DIR    = $(BUILD_DIR)/obj              # this is where we will put the object files
+MOD_DIR    = $(BUILD_DIR)/mod              # this is where we will put the module files
+FPARSE_SRC_DIR = ../external/fparse/src    # this is where the fparse source code files are located
 
 #------------------------------------------------------------------------------
 # set compiler
@@ -16,7 +16,7 @@ FC = gfortran
 #------------------------------------------------------------------------------
 # set flags
 #------------------------------------------------------------------------------
-# will always need this apart of the flags
+# will always need this a part of the flags
 FC_MODULE_DIR_FLAG ?= -J$(MOD_DIR)
 FC_LINE_LENGTH_FLAG ?= -ffree-line-length-none
 FCFLAGS  = $(FC_MODULE_DIR_FLAG) -I$(MOD_DIR) $(FC_LINE_LENGTH_FLAG)
@@ -83,15 +83,15 @@ $(OBJ_DIR):
 $(MOD_DIR):
 	mkdir -p $(MOD_DIR)
 
-# static pattern rule for compiling project .f90 files:
+# rule for compiling source file .f90 files:
 $(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.f90
 	$(FC) $(FCFLAGS) -c $< -o $@
 
-# static pattern rule for compiling fparse .f90 files:
+# rule for compiling the input parser source file .f90 files from fparse::
 $(FPARSE_OBJECTS): $(OBJ_DIR)/%.o: $(FPARSE_SRC_DIR)/%.f90
 	$(FC) $(FCFLAGS) -c $< -o $@
 
-# Link all object files to create the final cs-ccc executable
+# link all object files to create the final h_diagonalisation.exe executable
 $(TARGET): $(OBJS)
 	$(FC) $(OBJS) $(LDFLAGS) -o $(TARGET)
 
