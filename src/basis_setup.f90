@@ -8,6 +8,13 @@ module basis_setup
 
 contains
 
+    !--------------------------------------------------------------------------
+    ! setup_basis
+    !
+    ! purpose: driver subroutine for defining a radial basis 
+    !
+    ! (designed for those interested in including different basis types!)
+    !--------------------------------------------------------------------------
     subroutine setup_basis(basis,rgrid)
         use basis, only: basis_type
         use sturmian, only: generate_sturmian_basis
@@ -15,7 +22,6 @@ contains
         implicit none
         type(rgrid_type), intent(in) :: rgrid
         type(basis_type), intent(inout) :: basis
-
 
         call generate_sturmian_basis(rgrid, basis)
 

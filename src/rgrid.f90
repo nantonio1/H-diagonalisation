@@ -15,18 +15,17 @@ module rgrid_mod
 
 contains
 
+    !--------------------------------------------------------------------------
+    ! setup_rgrid
+    !
+    ! purpose: defines the electron radial grid points and integration weights
+    !--------------------------------------------------------------------------
     subroutine setup_rgrid(npoints,rgrid,wrgrid,dr_min,rmax,ounit)
         implicit none
-        !
-        ! input/output variables
-        !
         integer, intent(in) :: npoints
         integer, intent(in) :: ounit
         real(kind=wp), intent(out) :: rgrid(1:npoints),wrgrid(1:npoints)
         real(kind=wp), intent(in) :: dr_min,rmax
-        !
-        ! internal variables
-        !
         integer :: i
 
         rgrid(:)=0.0_wp
@@ -41,17 +40,16 @@ contains
     end subroutine setup_rgrid 
 
 
+    !--------------------------------------------------------------------------
+    ! trapezoidal_weights
+    !
+    ! purpose: given a grid x, create a set of trapezoidal integration weights
+    !--------------------------------------------------------------------------
     subroutine trapezoidal_weights(x,n,w)
         implicit none
-        !
-        ! input/output variables
-        !
         integer,intent(in)::n
         real(kind=wp),dimension(1:n),intent(in) :: x
         real(kind=wp),dimension(1:n),intent(out) :: w
-        !
-        ! internal variables
-        !
         integer :: i
 
         w(1)=0.5_wp*(x(1))

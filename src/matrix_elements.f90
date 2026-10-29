@@ -9,12 +9,17 @@ module matrix_elements
 contains
 
 
+    !--------------------------------------------------------------------------
+    ! compute_overlap_matrix
+    !
+    ! purpose: constructs the overlap matrix S to solve the generalised 
+    !          eigenvalue problem HC = SCe 
+    !--------------------------------------------------------------------------
     subroutine compute_overlap_matrix(basis, S)
         use basis, only: basis_type
         implicit none
         type(basis_type), intent(in) :: basis
         real(kind=wp), allocatable, intent(out) :: S(:,:)
-        !
 
         ! allocate the overlap matrix S and initialise it to zero
         allocate(S(1:basis%nmax, 1:basis%nmax))
@@ -25,14 +30,18 @@ contains
     end subroutine compute_overlap_matrix
 
 
+    !--------------------------------------------------------------------------
+    ! compute_overlap_matrix
+    !
+    ! purpose: constructs the hamiltonian matrix H to solve the generalised 
+    !          eigenvalue problem HC = SCe 
+    !--------------------------------------------------------------------------
     subroutine compute_hamiltonian_matrix(basis, H)
         use basis, only: basis_type
         implicit none
         type(basis_type), intent(in) :: basis
         real(kind=wp), allocatable, intent(out) :: H(:,:)
-        !
 
-        ! allocate the Hamiltonian matrix H and initialise it to zero
         allocate(H(1:basis%nmax, 1:basis%nmax))
         H(:,:) = 0.0_wp
 

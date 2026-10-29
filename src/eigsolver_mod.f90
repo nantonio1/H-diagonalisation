@@ -7,20 +7,29 @@ module eigsolver_mod
 
 contains
 
-    subroutine solve_gep_wrapper(n,H,B,c,e,ounit,eigenvectors,neigval_out)
+    !--------------------------------------------------------------------------
+    ! solve_gep_wrapper
+    !
+    ! purpose: driver subroutine which can solve a generalised eigenvalue 
+    !          of the form HC = SCe
+    !
+    ! you will notice above in this module, this subroutine is the only one
+    ! publically accesible to be called from a different subroutine/module.
+    !--------------------------------------------------------------------------
+    subroutine solve_gep_wrapper(n,H,S,C,e,ounit,eigenvectors,neigval_out)
         implicit none
         integer, intent(in) :: ounit
         integer, intent(in) :: n
-        real(kind=8), intent(in) :: B(1:n,1:n)
+        real(kind=8), intent(in) :: S(1:n,1:n)
         real(kind=8), intent(inout) :: H(1:n,1:n)
-        real(kind=8), intent(inout) :: c(1:n,1:n)
+        real(kind=8), intent(inout) :: C(1:n,1:n)
         real(kind=8), intent(inout) :: e(1:n)
         logical, intent(in) :: eigenvectors
         integer, intent(in) :: neigval_out
 
-        ! solve generalized eigenvalue problem
-        write(ounit,'(a46)') ' Solving the generalized eigenvalue problem...'
-        call solve_gep(n,H,B,c,e,ounit,eigenvectors)
+        ! solve generalised eigenvalue problem
+        write(ounit,'(a46)') ' Solving the generalised eigenvalue problem...'
+        call solve_gep(n,H,S,C,e,ounit,eigenvectors)
 
         ! output the energy eigenvalues
         call output_eigenvalues(n,e,ounit,neigval_out)
@@ -28,6 +37,13 @@ contains
     end subroutine solve_gep_wrapper
 
 
+    !--------------------------------------------------------------------------
+    ! output_eigenvalues
+    !
+    ! purpose: prints the list of eigenvalues obtained from the gep solver in 
+    !          reverse order so that the first eigenvalue appears at the bottom
+    !          of the screen
+    !--------------------------------------------------------------------------
     subroutine output_eigenvalues(n,enrgs,ounit,neigval_out)
         implicit none
         integer, intent(in) :: neigval_out
@@ -37,7 +53,7 @@ contains
         integer :: i
 
         write(ounit,'(a21)') ' List of eigenvalues:'
-        do i=1,neigval_out
+        do i=neigval_out,1,-1
             write(ounit,'(A,I3,A,F12.6)') '  eigenvalue ',i,': ',enrgs(i)
         end do
         write(ounit,*) ''
@@ -45,6 +61,12 @@ contains
     end subroutine output_eigenvalues
 
 
+    !--------------------------------------------------------------------------
+    ! solver_gep
+    !
+    ! purpose: uses LAPACK subroutines to solve a generalised eigenvalue 
+    !          problem
+    !--------------------------------------------------------------------------
     subroutine solve_gep(n,H,B,C,enrg,ounit,eigenvectors)
         implicit none
         logical, intent(in) :: eigenvectors

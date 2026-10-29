@@ -8,13 +8,17 @@ module sturmian
 
 contains
 
+    !--------------------------------------------------------------------------
+    ! generate_sturmian_basis
+    !
+    ! purpose: constructs the set of sturmian functions requested in input file
+    !--------------------------------------------------------------------------
     subroutine generate_sturmian_basis(rgrid, basis)
         use basis, only: basis_type
         use rgrid_mod, only: rgrid_type
         implicit none
         type(rgrid_type), intent(in) :: rgrid
         type(basis_type), intent(inout) :: basis
-        !
         integer :: n
         integer :: ir
 
